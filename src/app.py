@@ -17,7 +17,7 @@ import zlib
 class MainHandler(tornado.web.RequestHandler):
     @tornado.web.asynchronous
     def get(self):
-        self.write("Hello, world")
+        self.write(r'Hi Borys\n <url>\\ws for WebSockets\n <url>\\index for html\n <url>\\url for redirect to page')
         self.finish()
 
 
@@ -42,6 +42,7 @@ def make_app():
         (r"/", MainHandler),
         (r'/ws', WebSocketHandler),
         (r'/index', IndexPageHandler),
+        (r'/url', web.RedirectHandler, {{"url": "https://przegladarka-ekw.ms.gov.pl/eukw_prz/KsiegiWieczyste/wyszukiwanieKW"}})
         (r'/(favicon.ico)', tornado.web.StaticFileHandler, {'path': '../'}),
         (r'/(rest_api_example.png)', tornado.web.StaticFileHandler, {'path': './'}),
     ])
