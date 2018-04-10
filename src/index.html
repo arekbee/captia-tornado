@@ -1,0 +1,29 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+	<head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+        
+       <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+
+
+
+<body>
+<div id="g-recaptcha"></div>
+						<input id="captchaBean.reCaptcha2Bean.recaptchaResponse" name="captchaBean.reCaptcha2Bean.recaptchaResponse" type="hidden" value=""/>
+
+
+						<div class="g-recaptcha" data-sitekey="6LdrkCITAAAAANNzQ4LmMMEPcqOpvDnYizGrBOed"></div>
+						<script type="text/javascript">
+							var onloadCallback = function() {
+								grecaptcha.render('g-recaptcha', {
+									'sitekey' : '6LdrkCITAAAAANNzQ4LmMMEPcqOpvDnYizGrBOed',
+									'callback' : function(response) {
+										document.getElementById('captchaBean.reCaptcha2Bean.recaptchaResponse').value = response;
+									},
+									'theme' : 'light'
+								});
+							}
+						</script>
+						<div class="flLeft" id="recaptchaResponseErrors" style="width: 100%; padding-left: 0px; padding-top: 22px;">
+							
+</body>
+</html>
