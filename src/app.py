@@ -13,11 +13,20 @@ import tornado.websocket
 import zlib
 
 
-
 class MainHandler(tornado.web.RequestHandler):
+
     @tornado.web.asynchronous
     def get(self):
-        self.write(r'Hi Borys\n <url>\\ws for WebSockets\n <url>\\index for html\n <url>\\url for redirect to page')
+        self.write("""Hi Borys 
+<br/>
+&lt;url&gt;/ws is for WebSockets
+<br/>
+&lt;url&gt;/html is for html website
+<br/>
+&lt;url&gt;/url is for redirect to page
+<br/>
+To get example add url parameter example with number ex:
+""")
         self.finish()
 
 
@@ -41,7 +50,7 @@ def make_app():
     return tornado.web.Application([
         (r"/", MainHandler),
         (r'/ws', WebSocketHandler),
-        (r'/index', IndexPageHandler),
+        (r'/html', IndexPageHandler),
         (r'/url', tornado.web.RedirectHandler, {"url": "https://przegladarka-ekw.ms.gov.pl/eukw_prz/KsiegiWieczyste/wyszukiwanieKW"}),
         (r'/(favicon.ico)', tornado.web.StaticFileHandler, {'path': '../'}),
         (r'/(rest_api_example.png)', tornado.web.StaticFileHandler, {'path': './'}),
@@ -51,6 +60,6 @@ def make_app():
 
 
 if __name__ == "__main__":
-    app = make_app() #"ws://localhost:8888/websocket"
+    app = make_app() #"ws://localhost:8080/websocket"
     app.listen(8080)
     tornado.ioloop.IOLoop.current().start()
