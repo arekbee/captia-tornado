@@ -42,7 +42,7 @@ def make_app():
         (r"/", MainHandler),
         (r'/ws', WebSocketHandler),
         (r'/index', IndexPageHandler),
-        (r'/url', tornado.web.RedirectHandler, {"url": "https://przegladarka-ekw.ms.gov.pl/eukw_prz/KsiegiWieczyste/wyszukiwanieKW"})
+        (r'/url', tornado.web.RedirectHandler, {"url": "https://przegladarka-ekw.ms.gov.pl/eukw_prz/KsiegiWieczyste/wyszukiwanieKW"}),
         (r'/(favicon.ico)', tornado.web.StaticFileHandler, {'path': '../'}),
         (r'/(rest_api_example.png)', tornado.web.StaticFileHandler, {'path': './'}),
     ])
